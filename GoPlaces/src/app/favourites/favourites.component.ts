@@ -11,6 +11,7 @@ import { Component, OnInit,ChangeDetectorRef } from '@angular/core';
 export class FavouritesComponent implements OnInit {
 favArray=[];
 putitem;
+resultUpdated;
 rerender=false;
   constructor(private fav :SharedFavouriteService,
     private cdRef:ChangeDetectorRef
@@ -36,13 +37,23 @@ rerender=false;
     };
   
     this.fav.putFav(this.putitem,userCommentsobj).subscribe((res) =>{
-      console.log(res.json());
-      console.log(userCommentsobj);
+      this.resultUpdated=res.json();
+      //console.log(this.resultUpdated);
+      //console.log(userCommentsobj);
+      this.favArray.forEach(
+        
+        (element) => { 
+          console.log("parsing the array");
+          if(this.resultUpdated.id===element.id){
+            element.userComments=this.resultUpdated.userComments
+          }
+
+        });
+    
     
         
         
-      this.fav.getFav().subscribe((res) =>{this.favArray=res.json()
-        console.log(this.favArray)});
+      
       
     });
   
