@@ -1,7 +1,19 @@
 const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
+const favouritesModel=require('./favourites/favourites.entity.js').favouritesModel;
+const mongoose= require('mongoose');
+mongoose.connect("mongodb://localhost/favourites");
 
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  // we're connected!
+  console.log("connected to mongoDB");
+  
+  
+  
+});
 function createApp() {
   const app = express();
   return app;
@@ -46,3 +58,4 @@ app = setupRestRoutes(app);
 app.listen(3000, () => {
   console.log('server running on port 3000');
 });
+module.exports=app;

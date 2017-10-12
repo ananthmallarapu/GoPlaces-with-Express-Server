@@ -7,7 +7,7 @@ router.post('/favourites', (req, res) => {
   controller.postDataIntoFile(req, (err, result) => {
     console.log(err);
     if (err) {
-      res.status('500').send('cannot post to favourites');
+      res.status('500').send('cannot post to favourites'+'\n'+err);
     } else { res.send(req.body); }
   });
 });
@@ -15,7 +15,7 @@ router.get('/favourites', (req, res) => {
   controller.sendData(req, (err, result) => {
     if (err) {
       res.status('500').send('cannot get to favourites');
-    } else { res.json(JSON.parse(result).favourites); }
+    } else { res.json(JSON.parse(result)); }
   });
 });
 router.put('/favourites/:placeid?', (req, res) => {
@@ -24,15 +24,15 @@ router.put('/favourites/:placeid?', (req, res) => {
   controller.updateData(req, (err, result) => {
     if (err) {
       res.status('500').
-      send('cannot get to favourites');
+      send('cannot get to favourites'+' '+err);
     } else { res.json(JSON.parse(result)); }
   });
 });
 router.delete('/favourites/:placeid?', (req, res) => {
   controller.deleteData(req, (err, result) => {
     if (err) {
-      res.status('500').send('cannot get to favourites');
-    } else { res.json('deleted succesfully'); }
+      res.status('500').send('cannot get to favourites'+''+err);
+    } else { res.json(JSON.parse(result)); }
   });
 });
 
