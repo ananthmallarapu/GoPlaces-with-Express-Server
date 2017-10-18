@@ -5,13 +5,15 @@ required software:
 mongoDB
 node.js
 angular-cli
-make sure the above softwares are install in your machine
+make sure the above pacakges are install in your machine
+
 
 command to install dependencies
 1.navigate to ExpressAssignment directory 
 2.run the command in the shell:"npm install"
 3.navigate to GOplaces directory
-4.run the command in the shell:"ng build"
+4.run the command in the shell:"npm install"
+5.run the command in the shell:"ng build"
 
 command to run the application
 1.navigate to ExpressAssignment directory
