@@ -1,0 +1,23 @@
+{
+  "name": "webapp",
+  "version": "1.0.0",
+  "description": "DESCRIPTION this repo is a implementation of angualar application with express server using mongoDB as database",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ExpressAssinment/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ananthmallarapu/GoPlaces-with-Express-Server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ananthmallarapu/GoPlaces-with-Express-Server/issues"
+  },
+  "homepage": "https://github.com/ananthmallarapu/GoPlaces-with-Express-Server#readme",
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
+}

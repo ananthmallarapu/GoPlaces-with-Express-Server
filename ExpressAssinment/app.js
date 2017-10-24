@@ -3,7 +3,7 @@ const path = require('path');
 const morgan = require('morgan');
 const favouritesModel=require('./favourites/favourites.entity.js').favouritesModel;
 const mongoose= require('mongoose');
-mongoose.connect("mongodb://localhost/favourites");
+mongoose.connect("mongodb://mongodb/favourites");
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));

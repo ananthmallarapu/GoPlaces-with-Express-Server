@@ -18,3 +18,5 @@ command to install dependencies
 command to run the application
 1.navigate to ExpressAssignment directory
 2.run the command in the shell:"npm run start"
+
+ sudo docker exec -it 42fc798a6f3f /bin/bash
