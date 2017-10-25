@@ -8,7 +8,7 @@ const insertData =function(req,callback){
     const contact=req.body.contact;
     const password=Buffer.from(req.body.password,"utf8");
     const param=[username,email,contact,password];
-    const client = new dse.Client({ contactPoints: ['127.0.0.1'], protocolOptions: { maxVersion:4 }
+    const client = new dse.Client({ contactPoints: ['172.18.0.2'], protocolOptions: { maxVersion:4 }
     ,keyspace:'user_database'});
     const insertQuery = `insert into users ("username","email","contact","password") values(?,?,?,?)`;
 

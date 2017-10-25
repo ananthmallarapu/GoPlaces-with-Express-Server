@@ -6,7 +6,7 @@ const createConnection=require('./users/users.schema.js');
 const passport = require('passport');
 const session = require('express-session');
 const mongoose= require('mongoose');
-mongoose.connect("mongodb://localhost/favourites");
+mongoose.connect("mongodb://mongodb/favourites");
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
