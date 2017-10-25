@@ -1,4 +1,9 @@
 # dependencies
 node_modules/
+#compiled-output
+dist/
+#testing
+test/
+e2e/
 #databases
 /database
