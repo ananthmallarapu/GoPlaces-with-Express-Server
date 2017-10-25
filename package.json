@@ -19,5 +19,8 @@
   "homepage": "https://github.com/ananthmallarapu/GoPlaces-with-Express-Server#readme",
   "devDependencies": {
     "nodemon": "^1.12.1"
+  },
+  "dependencies": {
+
   }
 }

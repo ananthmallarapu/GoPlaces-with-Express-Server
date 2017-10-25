@@ -1,9 +1,11 @@
+import { AuthenticationService } from './authentication.service';
 
 import { SharedFavouriteService } from './shared-favourite.service';
 import { HttpModule } from '@angular/http';
 import { SearchSuggestionService } from './search-suggestion.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -15,6 +17,18 @@ import { DispaycontainerComponent } from './dispaycontainer/dispaycontainer.comp
 import { MoreDetailsComponent } from './more-details/more-details.component';
 import { FavouritesComponent } from './favourites/favourites.component';
 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material';
+import {MatCheckboxModule} from '@angular/material';
+import {MatToolbarModule } from '@angular/material';
+import { MatGridListModule, MatCardModule} from '@angular/material';
+import { MatDialogModule, MatListModule, MAT_PLACEHOLDER_GLOBAL_OPTIONS, MatFormFieldModule, MatInputModule, MatSnackBarModule, MatChipsModule } from '@angular/material';
+
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,12 +38,26 @@ import { FavouritesComponent } from './favourites/favourites.component';
     DisplayResultsComponent,
     DispaycontainerComponent,
     MoreDetailsComponent,
-    FavouritesComponent
+    FavouritesComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+      MatCheckboxModule,
+      MatToolbarModule, MatButtonModule,MatGridListModule,MatCardModule,
+      MatGridListModule,MatCardModule,
+      MatDialogModule,MatListModule,
+      MatFormFieldModule,
+      MatInputModule,
+      FlexLayoutModule,
+      MatSnackBarModule,
+      MatChipsModule,  
     RouterModule.forRoot([
       {path: '',
       component: DispaycontainerComponent 
@@ -47,13 +75,23 @@ import { FavouritesComponent } from './favourites/favourites.component';
       {path: 'results/:id',
       component: DisplayResultsComponent },
       {path: 'favourites',
-      component: FavouritesComponent }
+      component: FavouritesComponent },
+      {
+        path:'login',
+        component:LoginComponent
+      },
+      {
+        path:'register',
+        component:RegisterComponent
+      }
       
 
       
     ])
   ],
-  providers: [SearchSuggestionService,SharedFavouriteService] ,
+
+  providers: [SearchSuggestionService,SharedFavouriteService,AuthenticationService] ,
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,14 +7,22 @@ services:
     command: npm start
     depends_on:
       - mongodb
+      - cassandra
     ports:
       - 3000:3000
     links:
       - mongodb
+      - cassandra
+    
   mongodb:
     container_name: mongodb_container
     image: mongo:latest
     ports:
-      - 27017:27017 
+      - 27017:27017
+  cassandra:
+    container_name: cassandra_container
+    image: cassandra:latest
+    ports:
+      - 9042:9042
     
 

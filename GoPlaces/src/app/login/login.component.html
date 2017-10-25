@@ -1,0 +1,26 @@
+<p>
+  login works!
+</p>
+<div class="containerX" id="loginContainer">
+  <!-- <div *ngIf="failedToLogIn"><h3>Either Username or password is incorrect.Try again</h3></div> -->
+<form class="form-control"  #loginForm="ngForm" (ngSubmit)='onLoginSubmit(loginForm)'>
+  <div fxLayout="column" fxLayoutAlign="center center">
+  <div>
+<mat-form-field>
+    <input matInput name="userName" [(ngModel)]="loginUser.username" placeholder="user name" required>
+</mat-form-field> 
+</div>
+<div >
+<mat-form-field>
+    <input matInput type="password" name="password" [(ngModel)]="loginUser.password" placeholder="password" required>
+</mat-form-field> 
+</div>
+<div >
+ 
+  <button mat-raised-button type="submit" color="accent">login</button>
+  <button mat-raised-button type="button" color="accent" (click)='goToRegister()'>Register</button>
+  
+ </div>
+</div>
+</form>
+</div>

@@ -2,8 +2,11 @@ const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
 const favouritesModel=require('./favourites/favourites.entity.js').favouritesModel;
+const createConnection=require('./users/users.schema.js');
+const passport = require('passport');
+const session = require('express-session');
 const mongoose= require('mongoose');
-mongoose.connect("mongodb://mongodb/favourites");
+mongoose.connect("mongodb://localhost/favourites");
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -36,6 +39,7 @@ function setupMiddlewares(app) {
 }
 function setupRestRoutes(app) {
   app.use('/', require(path.join(__dirname, './favourites')));
+  app.use('/',require(path.join(__dirname, './users')));
   app.use((req, res) => {
     const err = new Error('Resource not found');
     err.status = 404;
@@ -51,7 +55,22 @@ function setupRestRoutes(app) {
   });
   return app;
 }
+function initializepassport(app){
+  app.use(session({secret:'mean'}));
+  app.use(passport.initialize());
+  app.use(passport.session());
+  passport.serializeUser(function(user, done) {
+    done(null, user);
+  });
+  
+  passport.deserializeUser(function(user, done) {
+    done(null, user);
+  });
+  return app;
+}
+createConnection();
 let app = createApp();
+app = initializepassport(app);
 app = setupStaticRoutes(app);
 app = setupMiddlewares(app);
 app = setupRestRoutes(app);
