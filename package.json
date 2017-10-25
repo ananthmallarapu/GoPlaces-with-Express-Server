@@ -4,6 +4,7 @@
   "description": "DESCRIPTION this repo is a implementation of angualar application with express server using mongoDB as database",
   "main": "index.js",
   "scripts": {
+    "build":"cd GoPlaces ; npm run build",
     "start": "nodemon ExpressAssinment/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
